@@ -7,11 +7,19 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class GildedRoseTest {
 
     @Test
-    void shouldUpdateQualityOfItem() {
-        Item[] items = new Item[] { new Item("foo", 0, 0) };
+    void shouldUpdateQualityOfItemIfQualityIsGreaterThanZero() {
+        Item[] items = new Item[] { new Item("foo", 0, 10) };
         GildedRose app = new GildedRose(items);
         app.updateQuality();
-        assertEquals("foo", app.items[0].name);
+        assertEquals(9, app.items[0].quality);
+    }
+
+    @Test
+    void shouldUpdateQualityOfItemIfQualityIsGreaterThanZeroAndSellInIsNegative() {
+        Item[] items = new Item[] { new Item("foo", -1, 10) };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertEquals(8, app.items[0].quality);
     }
 
     @Test
@@ -61,5 +69,15 @@ class GildedRoseTest {
         app.updateQuality();
         assertEquals(60, app.items[0].quality);
     }
+
+    @Test
+    void shouldNotUpdateSulfurassQuality() {
+        Item[] items = new Item[] { new Item("Sulfuras, Hand of Ragnaros", 1, 60) };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertEquals(60, app.items[0].quality);
+    }
+
+
 
 }
