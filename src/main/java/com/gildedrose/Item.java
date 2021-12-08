@@ -14,37 +14,49 @@ public class Item {
         this.quality = quality;
     }
 
+    // name every condtion
     static void upgradeOther(Item item) {
-        if (item.quality > 0) item.quality--;
-        if (item.sellIn < 0 && item.quality > 0) item.quality--;
+        if (isParameterOneGreaterThanParameterTwo(item.quality, 0)) item.quality--;
+        if (isParameterOneLesThanParameterTwo(item.sellIn, 0) && isParameterOneGreaterThanParameterTwo(item.quality, 0))
+            item.quality--;
 
     }
 
-    static void upgradeSulfuras(Item item) {
-        //does nothing
-    }
-
-    static void upgradeBackStage(Item item) {
-        if (item.quality < 50) {
+    static void upgradeBackStage(Item item) { // see if this parameter can be removed
+        if (isParameterOneLesThanParameterTwo(item.quality, 50)) {
             item.quality++;
 
-            if (item.sellIn < 11) item.quality++;
-            if (item.sellIn < 6) item.quality++;
+            if (isParameterOneLesThanParameterTwo(item.sellIn, 11)) item.quality++;
+            if (isParameterOneLesThanParameterTwo(item.sellIn, 6)) item.quality++;
 
-            if (item.sellIn <= 0) item.quality = 0;
+            if (isParameterOneIsLessThanOrEqualToParameterTwo(item.sellIn, 0)) item.quality = 0;
             item.sellIn--;
         }
     }
 
+    // get rid of statics; static dont have any place in OOPS
     static void updateAgedBrie(Item item) {
-        if (item.quality < 50) {
+        if (isParameterOneLesThanParameterTwo(item.quality, 50)) {
             item.sellIn--;
             item.quality++;
         }
     }
 
-   @Override
-   public String toString() {
+    private static boolean isParameterOneLesThanParameterTwo(int sellIn, int givenNumber) {
+        return sellIn < givenNumber;
+    }
+
+    private static boolean isParameterOneGreaterThanParameterTwo(int sellIn, int givenNumber) {
+        return sellIn > givenNumber;
+    }
+
+    private static boolean isParameterOneIsLessThanOrEqualToParameterTwo(int sellIn,int givenNumber) {
+        return sellIn <= givenNumber;
+    }
+
+
+    @Override
+    public String toString() {
         return this.name + ", " + this.sellIn + ", " + this.quality;
     }
 }
