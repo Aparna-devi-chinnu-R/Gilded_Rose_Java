@@ -15,30 +15,30 @@ public class Item {
     }
 
     // name every condtion
-    static void upgradeOther(Item item) {
-        if (isParameterOneGreaterThanParameterTwo(item.quality, 0)) item.quality--;
-        if (isParameterOneLesThanParameterTwo(item.sellIn, 0) && isParameterOneGreaterThanParameterTwo(item.quality, 0))
-            item.quality--;
+     void upgradeOther() {
+        if (isParameterOneGreaterThanParameterTwo(this.quality, 0)) this.quality--;
+        if (isParameterOneLesThanParameterTwo(this.sellIn, 0) && isParameterOneGreaterThanParameterTwo(this.quality, 0))
+            this.quality--;
 
     }
 
-    static void upgradeBackStage(Item item) { // see if this parameter can be removed
-        if (isParameterOneLesThanParameterTwo(item.quality, 50)) {
-            item.quality++;
+    void upgradeBackStage() { // see if this parameter can be removed
+        if (isParameterOneLesThanParameterTwo(this.quality, 50)) {
+            this.quality++;
 
-            if (isParameterOneLesThanParameterTwo(item.sellIn, 11)) item.quality++;
-            if (isParameterOneLesThanParameterTwo(item.sellIn, 6)) item.quality++;
+            if (isParameterOneLesThanParameterTwo(this.sellIn, 11)) this.quality++;
+            if (isParameterOneLesThanParameterTwo(this.sellIn, 6)) this.quality++;
 
-            if (isParameterOneIsLessThanOrEqualToParameterTwo(item.sellIn, 0)) item.quality = 0;
-            item.sellIn--;
+            if (isParameterOneIsLessThanOrEqualToParameterTwo(this.sellIn, 0)) this.quality = 0;
+            this.sellIn--;
         }
     }
 
     // get rid of statics; static dont have any place in OOPS
-    static void updateAgedBrie(Item item) {
-        if (isParameterOneLesThanParameterTwo(item.quality, 50)) {
-            item.sellIn--;
-            item.quality++;
+    void updateAgedBrie() {
+        if (isParameterOneLesThanParameterTwo(this.quality, 50)) {
+            this.sellIn--;
+            this.quality++;
         }
     }
 
