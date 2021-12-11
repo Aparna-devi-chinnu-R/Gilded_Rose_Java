@@ -15,14 +15,16 @@ public class Item {
     }
 
     // name every condtion
-     void upgradeOther() {
+     Item upgradeOther() {
         if (isParameterOneGreaterThanParameterTwo(this.quality, 0)) this.quality--;
         if (isParameterOneLesThanParameterTwo(this.sellIn, 0) && isParameterOneGreaterThanParameterTwo(this.quality, 0))
             this.quality--;
 
+        return this;
+
     }
 
-    void upgradeBackStage() { // see if this parameter can be removed
+    Item upgradeBackStage() { // see if this parameter can be removed
         if (isParameterOneLesThanParameterTwo(this.quality, 50)) {
             this.quality++;
 
@@ -32,14 +34,16 @@ public class Item {
             if (isParameterOneIsLessThanOrEqualToParameterTwo(this.sellIn, 0)) this.quality = 0;
             this.sellIn--;
         }
+        return this;
     }
 
     // get rid of statics; static dont have any place in OOPS
-    void updateAgedBrie() {
+    Item updateAgedBrie() {
         if (isParameterOneLesThanParameterTwo(this.quality, 50)) {
             this.sellIn--;
             this.quality++;
         }
+        return this;
     }
 
     private static boolean isParameterOneLesThanParameterTwo(int sellIn, int givenNumber) {

@@ -13,7 +13,7 @@ class GildedRose {
     }
 
     public void updateQuality() {
-        for (Item item : items) { // :( better collections apis for java
+        items.forEach(item -> {
             if (item.name.equals("Aged Brie")) { // can we remove if else conditions;
                 item.updateAgedBrie();
             } else if (item.name.equals("Backstage passes to a TAFKAL80ETC concert")) { // breaking encapsulation
@@ -23,7 +23,9 @@ class GildedRose {
                     item.upgradeOther();
                 }
             }
-        }
+        });
     }
+
+
 
 }
