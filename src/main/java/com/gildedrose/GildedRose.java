@@ -14,12 +14,12 @@ class GildedRose {
 
     public void updateQuality() {
         items.forEach(item -> {
-            if (item.name.equals("Aged Brie")) { // can we remove if else conditions;
+            if (item.isAgedBrie()) { // can we remove if else conditions;
                 item.updateAgedBrie();
-            } else if (item.name.equals("Backstage passes to a TAFKAL80ETC concert")) { // breaking encapsulation
+            } else if (item.isBackStagePasses()) { // breaking encapsulation
                 item.upgradeBackStage();
             } else {
-                if (!item.name.equals("Sulfuras, Hand of Ragnaros")) {
+                if (!item.isSulfuras()) {
                     item.upgradeOther();
                 }
             }
