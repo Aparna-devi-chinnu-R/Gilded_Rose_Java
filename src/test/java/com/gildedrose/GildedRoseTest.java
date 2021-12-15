@@ -30,7 +30,7 @@ class GildedRoseTest {
     @Test
     void shouldUpdateAgedBrieQualityByOne() {
         List<Item> items = new ArrayList<>(); ;;
-        items.add(new Item("Aged Brie", 0, 0));
+        items.add(new AgedBrie("Aged Brie", 0, 0));
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertEquals(1, app.items.get(0).quality);
@@ -39,7 +39,7 @@ class GildedRoseTest {
     @Test
     void shouldUpdateBackstageQualityByThreeIfSellsIsLessThanElevenButNotNegativeAndQualityIsLessThan50() {
         List<Item> items = new ArrayList<>();
-        items.add(new Item("Backstage passes to a TAFKAL80ETC concert", 2, 0));
+        items.add(new BackStagePasses("Backstage passes to a TAFKAL80ETC concert", 2, 0));
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertEquals(3, app.items.get(0).quality);
@@ -48,7 +48,7 @@ class GildedRoseTest {
     @Test
     void shouldUpdateBackstageQualityByZeroIfSellsIsZeroAndQualityIsLessThan50() {
         List<Item> items = new ArrayList<>();
-        items.add(new Item("Backstage passes to a TAFKAL80ETC concert", 0, 0));
+        items.add(new BackStagePasses("Backstage passes to a TAFKAL80ETC concert", 0, 0));
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertEquals(0, app.items.get(0).quality);
@@ -57,7 +57,7 @@ class GildedRoseTest {
     @Test
     void shouldUpdateBackstageQualityByTwoIfSellsIsBetweenSixAndElevenAndQualityIsLessThan50() {
         List<Item> items = new ArrayList<>();
-        items.add(new Item("Backstage passes to a TAFKAL80ETC concert", 6, 0));
+        items.add(new BackStagePasses("Backstage passes to a TAFKAL80ETC concert", 6, 0));
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertEquals(2, app.items.get(0).quality);
@@ -66,7 +66,7 @@ class GildedRoseTest {
     @Test
     void shouldUpdateBackstageQualityByZeroIfSellsIsZero() {
         List<Item> items = new ArrayList<>();
-        items.add(new Item("Backstage passes to a TAFKAL80ETC concert", 0, 40));
+        items.add(new BackStagePasses("Backstage passes to a TAFKAL80ETC concert", 0, 40));
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertEquals(0, app.items.get(0).quality);
@@ -75,7 +75,7 @@ class GildedRoseTest {
     @Test
     void shouldNotUpdateBackstageQualityIfQualityIsGreaterThanOrEqualTo50() {
         List<Item> items = new ArrayList<>();
-        items.add(new Item("Backstage passes to a TAFKAL80ETC concert", 1, 60));
+        items.add(new BackStagePasses("Backstage passes to a TAFKAL80ETC concert", 1, 60));
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertEquals(60, app.items.get(0).quality);
@@ -84,7 +84,7 @@ class GildedRoseTest {
     @Test
     void shouldNotUpdateSulfurassQuality() {
         List<Item> items = new ArrayList<>();
-        items.add(new Item("Sulfuras, Hand of Ragnaros", 1, 60));
+        items.add(new Sulfras("Sulfuras, Hand of Ragnaros", 1, 60));
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertEquals(60, app.items.get(0).quality);

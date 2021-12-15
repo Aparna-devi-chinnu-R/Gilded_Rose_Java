@@ -4,6 +4,7 @@ package com.gildedrose;
 // Likely no public fields; no gettters and setters
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 class GildedRose {
     List<Item> items; // List
@@ -12,18 +13,9 @@ class GildedRose {
         this.items = items;
     }
 
-    public void updateQuality() {
-        items.forEach(item -> {
-            if (item.isAgedBrie()) { // can we remove if else conditions;
-                item.updateAgedBrie();
-            } else if (item.isBackStagePasses()) { // breaking encapsulation
-                item.upgradeBackStage();
-            } else {
-                if (!item.isSulfuras()) {
-                    item.upgradeOther();
-                }
-            }
-        });
+    public List<Item> updateQuality() {
+        List<Item> updatedList = items.stream().map(item -> item.update()).collect(Collectors.toList());
+        return updatedList;
     }
 
 
