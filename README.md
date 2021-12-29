@@ -20,7 +20,7 @@ TODO :
     4. Make arrray to list --done
     5. Avoid getters and setters.
     6. No id else condition - done
-    7. Avoid void methods
+    7. Avoid void methods - but why?
 
 
 Solid principles:
@@ -30,3 +30,14 @@ Solid principles:
     3.L - Linskov substitution (Avoid misusage of inheritace)
     4.I - Interface segregation principle (not making interfaces weighted)
     5.D - Dependency Injection.
+
+Design Principles:
+
+    1.DRY - There are some functions that are repeating.
+    2.SPR -
+    3 LSP -
+    4.DIP -
+    5.KISS - Follwing by naming conventions
+    6.ISP - Should I use interface instead of class? When should I use interface amd whrn class?
+    7.Open/Closed Principle -y
+    8.Composition over inheritance - Not sure when to follow this
