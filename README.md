@@ -41,3 +41,10 @@ Design Principles:
     6.ISP - Should I use interface instead of class? When should I use interface amd whrn class?
     7.Open/Closed Principle -y
     8.Composition over inheritance - Not sure when to follow this
+
+Four Principles of Simple designs:
+
+    1.Runs all tests
+    2.Minimize duplication
+    3.Maximize clarity
+    4.Keep it simple
