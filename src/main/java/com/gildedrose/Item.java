@@ -2,6 +2,7 @@ package com.gildedrose;
 
 public class Item {
 
+    public static final int QUALITY_LIMIT = 0;
     protected String name;
 
     protected int sellIn;
@@ -21,19 +22,19 @@ public class Item {
     }
 
     Item update(){
-        if (isParameterOneGreaterThanParameterTwo(quality, 0)) quality--;
-        if (isParameterOneLesThanParameterTwo(sellIn, 0) && isParameterOneGreaterThanParameterTwo(quality, 0))
-            quality--;
+        if (isItemQualityGood()) quality--;
+
+        if (isItemExpired() && isItemQualityGood())  quality--;
 
         return this;
     }
 
-    private static boolean isParameterOneGreaterThanParameterTwo(int sellIn, int givenNumber) {
-        return sellIn > givenNumber;
+    private boolean isItemQualityGood() {
+        return quality > QUALITY_LIMIT;
     }
 
-    private static boolean isParameterOneLesThanParameterTwo(int sellIn, int givenNumber) {
-        return sellIn < givenNumber;
+    private boolean isItemExpired() {
+        return sellIn < 0;
     }
 
 

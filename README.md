@@ -28,7 +28,9 @@ Solid principles:
     1.S - Singularity
     2.O - open for expansion closed for modification
     3.L - Linskov substitution (Avoid misusage of inheritace)
-    4.I - Interface segregation principle (not making interfaces weighted)
+    4.I - Interface segregation principle (not making interfaces weighted ,
+             eg if zookeeper class has 3 methods feed , secure and pet ,
+              now who ever thezookeer has to implement these methd, instead if we create seperate methods for these the user will implement according to that )
     5.D - Dependency Injection.
 
 Design Principles:

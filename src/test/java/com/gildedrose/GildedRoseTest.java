@@ -7,6 +7,14 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+
+
+// Item -- interface { update }
+// always-------
+// new AgeBrie()
+// new BackStagePasses()
+// new OtherItem()
+
 class GildedRoseTest {
 
     public static final String FOO_ITEM = "foo";
@@ -68,6 +76,8 @@ class GildedRoseTest {
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertEquals(2, app.items.get(0).quality);
+
+        assertThat(2, Is.is(quality));
     }
 
     @Test
